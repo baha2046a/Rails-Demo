@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 <div class="row justify-content-md-center">
-  <div class="col my-user-content">
+  <div class="col-md-6 col-md-offset-3">
     <p id="notice"><%= notice %></p>
       
     <section class="user_info">
@@ -13,7 +13,7 @@
     <br>
     
     <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-outline-secondary", role: "button" %>
-    <%= link_to 'Back', users_path, class: "btn btn-outline-secondary", role: "button" %>    
+    <%= link_to 'Back', users_path, class: "btn btn-secondary active", role: "button" %>    
   </div>
 </div>
 
