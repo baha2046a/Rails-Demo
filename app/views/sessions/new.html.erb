@@ -1,31 +1,31 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
 
-<div class="row justify-content-md-center">
-  <div class="col my-user-content">
-    <%= form_for(:session, url: login_path) do |form| %>
+<div class="container-sm">
+  <h1>Log in</h1>
+  <%= form_for(:session, url: login_path) do |form| %>
+  
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
     
-      <div class="field">
-        <%= form.label :name %>
-        <%= form.text_field :name, class: 'form-control' %>
-      </div>
-        
-      <div class="field">
-        <%= form.label :password %>
-        <%= form.password_field :password, class: 'form-control' %>
-      </div>
-      
-      <%= form.label :remember_me, class: "checkbox inline" do %>
-        <%= form.check_box :remember_me %>
-        <span>Remember me on this computer</span>
-      <% end %>
+    <div class="mb-3">
+      <%= form.label :password, class: 'form-label' %>
+      <%= form.text_field :password, class: 'form-control', type: "password" %>
+    </div>
     
-      <div class="actions">
-        <%= form.submit "Log in", class: "btn btn-primary", role: "button" %>
-      </div>
+    <%= form.label :remember_me, class: "form-check-label inline" do %>
+      <%= form.check_box :remember_me %>
+      <span>Remember me on this computer</span>
     <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-  </div>
+    
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <p></p>
+      <div class="actions">
+        <%= form.submit "Log in", class: "btn btn-primary active", role: "button" %>
+      </div>
+      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    </div>
+  <% end %>
 </div>
 
