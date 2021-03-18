@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  include SessionsHelper
-    
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
@@ -15,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /users/new
@@ -84,15 +83,6 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
-    
-    # ログイン済みユーザーかどうか確認
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
     end
     
     # 正しいユーザーかどうか確認

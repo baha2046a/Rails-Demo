@@ -44,4 +44,7 @@ yarn-debug.log*
 # Ignore db test files.
 db/test.*
 
+# アップロードされたテスト画像を無視する
+/public/uploads
+
 /.env

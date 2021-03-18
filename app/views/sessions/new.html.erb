@@ -10,7 +10,7 @@
       
       <%= form.label :password, class: 'form-label' %>
       <%= link_to "(forgot password)", new_password_reset_path %>
-      <%= form.text_field :password, class: 'form-control', type: "password" %>
+      <%= form.password_field :password, class: 'form-control' %>
       
       <%= form.label :remember_me, class: "form-check-label inline" do %>
         <%= form.check_box :remember_me %>

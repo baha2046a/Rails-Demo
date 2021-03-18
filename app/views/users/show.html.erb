@@ -1,19 +1,25 @@
 <% provide(:title, @user.name) %>
 <div class="row justify-content-md-center">
-  <div class="col-md-6 col-md-offset-3">
-    <p id="notice"><%= notice %></p>
-      
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <br>
-    <br>
-    
-    <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-outline-secondary", role: "button" %>
-    <%= link_to 'Back', users_path, class: "btn btn-secondary active", role: "button" %>    
-  </div>
+    <aside class="col-md-4">
+      <section class="user_info">
+        <h1>
+          <%= gravatar_for @user %>
+          <%= @user.name %>
+        </h1>
+      </section>
+      <p></p>
+      <p></p>
+      <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-outline-secondary", role: "button" %>
+      <%= link_to 'Back', users_path, class: "btn btn-secondary active", role: "button" %>   
+    </aside>
+    <div class="col-md-8">
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts, :previous_label => '&lt', :next_label => '&gt' %>
+    <% end %>
+    </div>
 </div>
 
