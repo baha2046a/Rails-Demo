@@ -1,0 +1,28 @@
+<div class="container-sm">
+  <h1>Users</h1>
+
+  <div class="d-flex justify-content-center">
+    <%= will_paginate @users, :previous_label => '&lt', :next_label => '&gt' %>
+  </div>
+    
+  <center>
+  <table class="table table-hover" style="width: 600px;">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <%= render @users %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New User', new_user_path, class: "btn btn-primary active", role: "button" %>
+  </center>
+</div>

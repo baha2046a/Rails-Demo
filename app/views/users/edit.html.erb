@@ -1,0 +1,16 @@
+<% provide(:title, 'Edit User') %>
+<div class="container-sm">
+  <h1>Editing User</h1>
+
+  <%= render 'form', user: @user %>
+
+  <div class="gravatar_edit">
+    <%= gravatar_for @user %>
+    <a href="http://gravatar.com/emails" class="btn btn-outline-secondary" target="_blank">Change</a>
+  </div>
+    
+  <center>    
+    <%= link_to 'Show', @user, class: "btn btn-outline-secondary", role: "button" %>
+    <%= link_to 'Back', users_path, class: "btn btn-secondary active", role: "button" %>
+  </center>
+</div>

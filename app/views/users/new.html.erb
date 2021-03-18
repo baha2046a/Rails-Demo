@@ -1,0 +1,10 @@
+<% provide(:title, 'Sign up') %>
+<div class="container-sm">
+  <h1>Sign up</h1>
+
+  <%= render 'form', user: @user %>
+  
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <%= link_to 'Back', users_path, class: "btn btn-secondary active", role: "button" %>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+
+<div class="row justify-content-md-center">
+  <div class="col my-user-content">
+    <%= form_for(:session, url: login_path) do |form| %>
+    
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'form-control' %>
+      </div>
+        
+      <div class="field">
+        <%= form.label :password %>
+        <%= form.password_field :password, class: 'form-control' %>
+      </div>
+      
+      <%= form.label :remember_me, class: "checkbox inline" do %>
+        <%= form.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+      <% end %>
+    
+      <div class="actions">
+        <%= form.submit "Log in", class: "btn btn-primary", role: "button" %>
+      </div>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div>
+
